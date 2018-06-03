@@ -12,6 +12,6 @@ public class Main {
         bst.addKey(60);
         bst.addKey(90);
         bst.addKey(15);
-        System.out.println(bst.postorder());
+        System.out.println(bst.orderByLine());
     }
 }

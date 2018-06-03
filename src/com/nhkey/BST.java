@@ -26,7 +26,6 @@ public class BST {
 
     public void addKey(int val) {
         this.root = addKeyRec(root, val);
-        return ;
     }
 
     public BTreeNode addKeyRec(BTreeNode node, int val)
@@ -88,5 +87,37 @@ public class BST {
             s += node.getVal() + " ";
         }
         return s;
+    }
+
+    public String orderByLine() {
+        int h = this.getHeight();
+        StringBuilder str = new StringBuilder();
+        for (int i = 1; i <= h; i++) {
+            str.append(orderByLineRec(this.root, i));
+        }
+        return str.toString();
+    }
+
+    private String orderByLineRec(BTreeNode node, int height) {
+        if (node == null) {
+            return "";
+        }
+        if (height == 1) {
+            return node.getVal() + " ";
+        }
+        return orderByLineRec(node.left, height - 1) + orderByLineRec(node.right, height - 1);
+    }
+
+    public int getHeight() {
+        return getHeightRec(this.root);
+    }
+
+    private int getHeightRec(BTreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int heightLeft =  getHeightRec(node.left);
+        int heightRight =  getHeightRec(node.right);
+        return Math.max(heightLeft, heightRight) + 1;
     }
 }
