@@ -1,4 +1,4 @@
-package com.nhkey;
+package com.nhkey.bst;
 
 public class Main {
 

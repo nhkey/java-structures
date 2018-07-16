@@ -1,4 +1,4 @@
-package com.nhkey;
+package com.nhkey.bst;
 
 import org.jetbrains.annotations.Contract;
 
@@ -119,5 +119,16 @@ public class BST {
         int heightLeft =  getHeightRec(node.left);
         int heightRight =  getHeightRec(node.right);
         return Math.max(heightLeft, heightRight) + 1;
+    }
+
+    public void deleteValue(int val) {
+        BTreeNode node = this.search(val);
+        if (node == null) {
+            return;
+        }
+
+        if (node.left == null) {
+            
+        }
     }
 }
